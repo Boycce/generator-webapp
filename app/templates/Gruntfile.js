@@ -271,19 +271,19 @@ module.exports = function (grunt) {
             html: ['<%%= config.dist %>/{,*/}*.html'],
             css: ['<%%= config.dist %>/styles/{,*/}*.css']
         },
-
+        /*
         // The following *-min tasks produce minified files in the dist folder
         imagemin: {
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%%= config.app %>/images',
-                    src: '{,*/}*.{gif,jpeg,jpg,png}',
+                    src: '{,*!!!/}*.{gif,jpeg,jpg,png}', // remove !!!
                     dest: '<%%= config.dist %>/images'
                 }]
             }
         },
-
+        */
         svgmin: {
             dist: {
                 files: [{
@@ -407,7 +407,7 @@ module.exports = function (grunt) {
                 'coffee',<% } if (includeSass) { %>
                 'sass',<% } %>
                 'copy:styles',
-                'imagemin',
+                //'imagemin',
                 'svgmin'
             ]
         }
